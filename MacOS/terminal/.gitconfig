@@ -1,0 +1,6 @@
+[user]
+	name = smallsky2516
+	email = smallsky2516@yeah.net
+[http]
+	sslBackend = openssl
+	sslVerify = false

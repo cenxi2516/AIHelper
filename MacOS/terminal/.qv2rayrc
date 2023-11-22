@@ -1,0 +1,59 @@
+# 更新qv2ray_core内文件
+# geoip.dat
+# geosite.dat
+# private.dat
+# geoip-only-cn-private.dat
+# geoip-asn.dat
+# cn.dat
+alias backupQv2rayCore="echo 'start backup $Qv2rayCorePath';cp -R $Qv2rayCorePath $BackupPath;echo 'backup success!';separateSpace;"
+alias inQv2rayCorePath="cd $Qv2rayCorePath;spaceLSspace;"
+
+# URL
+GEOIP_URL="https://raw.githubusercontent.com/Loyalsoldier/geoip/release/geoip.dat"
+GEOSITE_URL="https://github.com/Loyalsoldier/v2ray-rules-dat/releases/latest/download/geosite.dat"
+PRIVATE_URL="https://raw.githubusercontent.com/Loyalsoldier/geoip/release/private.dat"
+GEOIP_ONLY_CN_PRIVATE_URL="https://raw.githubusercontent.com/Loyalsoldier/geoip/release/geoip-only-cn-private.dat"
+GEOIP_ASN_URL="https://raw.githubusercontent.com/Loyalsoldier/geoip/release/geoip-asn.dat"
+CN_URL="https://raw.githubusercontent.com/Loyalsoldier/geoip/release/cn.dat"
+
+# filename
+GEOIP_FILENAME="geoip.dat"
+GEOSITE_FILENAME="geosite.dat"
+PRIVATE_FILENAME="private.dat"
+GEOIP_ONLY_CN_PRIVATE_FILENAME="geoip-only-cn-private.dat"
+GEOIP_ASN_FILENAME="geoip-asn.dat"
+CN_FILENAME="cn.dat"
+
+alias curlGeoip="curl ${GEOIP_URL} -o ${GEOIP_FILENAME};"
+alias curlGeosite="curl ${GEOSITE_URL} -o ${GEOSITE_FILENAME};"
+alias curlPrivate="curl ${PRIVATE_URL} -o ${PRIVATE_FILENAME};"
+alias curlGeoipOnlyCNPrivate="curl ${GEOIP_ONLY_CN_PRIVATE_URL} -o ${GEOIP_ONLY_CN_PRIVATE_FILENAME};"
+alias curlGeoipAsn="curl ${GEOIP_ASN_URL} -o ${GEOIP_ASN_FILENAME};"
+alias curlCN="curl ${CN_URL} -o ${CN_FILENAME};"
+
+alias curlUpdateGeoip="separateLine;echo '==== start download ${GEOIP_FILENAME} ====';separateSpace;rm -rf ${GEOIP_FILENAME};separateSpace;curlGeoip;spaceLSspace;"
+alias curlUpdateGeosite="separateLine;echo '==== start download ${GEOSITE_FILENAME} ====';separateSpace;rm -rf ${GEOSITE_FILENAME};separateSpace;curlGeosite;spaceLSspace;"
+alias curlUpdatePrivate="separateLine;echo '==== start download ${PRIVATE_FILENAME} ====';separateSpace;rm -rf ${PRIVATE_FILENAME};separateSpace;curlPrivate;spaceLSspace;"
+alias curlUpdateGeoipOnlyCNPrivate="separateLine;echo '==== start download ${GEOIP_ONLY_CN_PRIVATE_FILENAME} ====';separateSpace;rm -rf ${GEOIP_ONLY_CN_PRIVATE_FILENAME};separateSpace;curlGeoipOnlyCNPrivate;spaceLSspace;"
+alias curlUpdateGeoipAsn="separateLine;echo '==== start download ${GEOIP_ASN_FILENAME} ====';separateSpace;rm -rf ${GEOIP_ASN_FILENAME};separateSpace;curlGeoipAsn;spaceLSspace;"
+alias curlUpdateCN="separateLine;echo '==== start download ${CN_FILENAME} ====';separateSpace;rm -rf ${CN_FILENAME};separateSpace;curlCN;spaceLSspace;"
+
+
+alias wgetGeoip="wget ${GEOIP_URL};"
+alias wgetGeosite="wget ${GEOSITE_URL};"
+alias wgetPrivate="wget ${PRIVATE_URL};"
+alias wgetGeoipOnlyCNPrivate="wget ${GEOIP_ONLY_CN_PRIVATE_URL};"
+alias wgetGeoipAsn="wget ${GEOIP_ASN_URL};"
+alias wgetCN="wget ${CN_URL};"
+
+alias wgetUpdateGeoip="separateLine;echo '==== start download ${GEOIP_FILENAME} ====';separateSpace;rm -rf ${GEOIP_FILENAME};separateSpace;wgetGeoip;spaceLSspace;"
+alias wgetUpdateGeosite="separateLine;echo '==== start download ${GEOSITE_FILENAME} ====';separateSpace;rm -rf ${GEOSITE_FILENAME};separateSpace;wgetGeosite;spaceLSspace;"
+alias wgetUpdatePrivate="separateLine;echo '==== start download ${PRIVATE_FILENAME} ====';separateSpace;rm -rf ${PRIVATE_FILENAME};separateSpace;wgetPrivate;spaceLSspace;"
+alias wgetUpdateGeoipOnlyCNPrivate="separateLine;echo '==== start download ${GEOIP_ONLY_CN_PRIVATE_FILENAME} ====';separateSpace;rm -rf ${GEOIP_ONLY_CN_PRIVATE_FILENAME};separateSpace;wgetGeoipOnlyCNPrivate;spaceLSspace;"
+alias wgetUpdateGeoipAsn="separateLine;echo '==== start download ${GEOIP_ASN_FILENAME} ====';separateSpace;rm -rf ${GEOIP_ASN_FILENAME};separateSpace;wgetGeoipAsn;spaceLSspace;"
+alias wgetUpdateCN="separateLine;echo '==== start download ${CN_FILENAME} ====';separateSpace;rm -rf ${CN_FILENAME};separateSpace;wgetCN;spaceLSspace;"
+
+
+alias curlUpdateQv2rayCore="proxy;backupQv2rayCore;inQv2rayCorePath;curlUpdateGeoip;curlUpdateGeosite;curlUpdatePrivate;curlUpdateGeoipOnlyCNPrivate;curlUpdateGeoipAsn;curlUpdateCN;unproxy;open .;cd ~;";
+alias wgetUpdateQv2rayCore="proxy;backupQv2rayCore;inQv2rayCorePath;wgetUpdateGeoip;wgetUpdateGeosite;wgetUpdatePrivate;wgetUpdateGeoipOnlyCNPrivate;wgetUpdateGeoipAsn;wgetUpdateCN;unproxy;open .;cd ~;";
+alias recoverQv2rayCore="echo 'start recover $Qv2rayCorePath';cp -R $BackupPath/qv2ray_core $MYSELF_HOME;echo 'recover success!';separateSpace;"

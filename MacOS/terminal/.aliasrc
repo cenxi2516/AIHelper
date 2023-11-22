@@ -1,0 +1,91 @@
+# 定义别名
+alias clear='printf "\33c\e[3J";'
+alias separateLine="echo '- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -';"
+alias separateSpace="echo '                                                                                                                            ';"
+alias spaceLSspace="separateSpace;ls -la;separateSpace;"
+
+# 测试终端代理
+IPINFO_TOKEN="e08e19e89af578"
+alias testProxy="curl ipinfo.io\?token=${IPINFO_TOKEN} ;echo"
+
+# 获取公网IP地址
+alias IP="curl ip.gs || curl ip.sb || curl icanhazip.com || curl https://ipinfo.io/ip &&;echo || curl https://ipecho.net/plain &&;echo"
+
+# 测试curl时间
+alias curlTime="curl -w \"@$TEST_PATH/curl-format.txt\" -o /dev/null -s"
+
+# 查看npm配置
+alias npmBaseConfig="npm config ls;"
+alias npmAllConfig="npm config ls -l;"
+
+# 更新本地CDN缓存
+alias updateCDNCache="echo 'refresh CDN Cache';sudo killall -HUP mDNSResponder;";
+
+# 关闭/打开IPV6
+alias closeIPV6="echo 'close IPV6!';sudo networksetup -setv6off Wi-Fi;"
+alias openIPV6="echo 'open IPV6 ...';sudo networksetup -setv6automatic Wi-Fi;"
+
+# 解决无法打开软件
+# 查看任何来源状态
+alias anySourceStatus="echo 'view any source status ...';sudo spctl --status;"
+
+# 关闭/打开任何来源
+alias closeAnySource="echo 'close any source!';sudo spctl --master-disable;"
+alias openAnySource="echo 'open any source ...';sudo spctl --master-enable;"
+
+# 移除app免疫隔离属性
+alias removeQuarantineProperty="echo 'remove quarantine property ...';sudo xattr -rd com.apple.quarantine "
+
+# 更新brew 和 软件
+alias OMZUpdate="omz update;separateSpace;"
+alias brewUpdate="brew update;brew upgrade;brew cleanup;separateSpace;brew upgrade quicklook-json stats wechat android-platform-tools drawio rectangle baidunetdisk google-chrome webpquicklook ticktick telegram wpsoffice-cn sogouinput visual-studio-code apifox Snipaste IINA;brew cleanup;separateSpace;"
+alias packageUpdateCheck="npm -g outdated;separateSpace;softwareupdate -l;separateSpace;"
+alias macUpdate="proxy;OMZUpdate;packageUpdateCheck;brewUpdate;unproxy;"
+
+
+# 开启AIChat
+alias AIChat="proxy;$SCRIPT_PATH/TerminalAIChat/AIChat.sh "
+
+# 打开 hosts文件
+alias openHosts="open /etc/hosts"
+
+# 删除 文件或文件夹
+alias delete="rm -rf "
+
+# node版本
+NODE_LEARN_VERSION="v16.20.2"
+alias switchLearnEnv="nvm use ${NODE_LEARN_VERSION}"
+
+# 清除git仓库历史记录
+alias clearGitAllHistory="$SCRIPT_PATH/fetch_push_clear_all_history.sh"
+
+# 操作文件或文件夹权限
+# chmod [<权限范围><权限操作><具体权限>] [文件或目录…]
+#
+# <权限范围>
+# u：User，即文件或目录的拥有者。
+# g：Group，即文件或目录的所属群组。
+# o：Other，除了文件或目录拥有者或所属群组之外，其他用户皆属于这个范围。
+# a：All，即全部的用户，包含拥有者，所属群组以及其他用户。
+#
+# <权限操作>
+# +：表示增加权限
+# -：表示取消权限
+# =：表示唯一设定权限
+#
+# <具体权限>
+# r：表示可读取
+# w：表示可写入
+# x ：表示可执行
+
+alias addExecutePermission="chmod +x "
+alias addReadPermission="chmod +r "
+alias onlyReadPermission="chmod =r"
+alias addWritePermission="chmod +w "
+alias minusWritePermission="chmod -w "
+
+# ssh信息
+alias publicSSH='cat ~/.ssh/id_ed25519.pub'
+
+# 清除在终端产生的历史
+alias clearTerminalHistory="$SCRIPT_PATH/clearTerminalHistory.sh"

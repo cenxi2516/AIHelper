@@ -1,0 +1,22 @@
+# terminal代理
+HTTP_PORT="8889"
+SOCKS_PORT="1089"
+LOCALHOST="127.0.0.1"
+http_proxy="http://${LOCALHOST}:${HTTP_PORT}"
+https_proxy="https://$LOCALHOST:$HTTP_PORT"
+socks5_proxy="socks5://${LOCALHOST}:${SOCKS_PORT}"
+
+httpProxy="export http_proxy=${http_proxy}"
+httpsProxy="export https_proxy=${http_proxy}"
+allProxy="export all_proxy=${socks5_proxy}"
+
+alias proxy="${allProxy};${httpProxy};${httpsProxy};echo 'open terminal proxy ...';"
+alias unproxy="unset all_proxy;unset http_proxy;unset https_proxy;echo 'close terminal proxy!';"
+
+# git代理
+alias gitProxy="echo 'open git proxy ...';git config --global http.proxy ${http_proxy};git config --global https.proxy ${https_proxy};"
+alias gitUnProxy="echo 'close git proxy!';git config --global --unset http.proxy;git config --global --unset https.proxy;"
+
+# npm代理
+alias npmProxy="echo 'open npm proxy ...';npm config set proxy ${http_proxy};npm config set https-proxy ${http_proxy};npm config set strict-ssl false;"
+alias npmUnProxy="echo 'close npm proxy!';npm config delete proxy;npm config delete https-proxy;"
