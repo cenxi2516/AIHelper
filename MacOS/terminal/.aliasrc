@@ -38,7 +38,7 @@ alias removeQuarantineProperty="echo 'remove quarantine property ...';sudo xattr
 
 # 更新brew 和 软件
 alias OMZUpdate="omz update;separateSpace;"
-alias brewUpdate="brew update;brew upgrade;brew cleanup;separateSpace;brew upgrade quicklook-json stats wechat android-platform-tools drawio rectangle baidunetdisk google-chrome webpquicklook ticktick telegram wpsoffice-cn sogouinput visual-studio-code apifox Snipaste IINA;brew cleanup;separateSpace;"
+alias brewUpdate="brew update;brew upgrade;brew cleanup;separateSpace;brew upgrade sourcetree quicklook-json stats wechat android-platform-tools drawio rectangle baidunetdisk google-chrome webpquicklook ticktick telegram wpsoffice-cn sogouinput visual-studio-code apifox Snipaste IINA imageoptim;brew cleanup;separateSpace;"
 alias packageUpdateCheck="npm -g outdated;separateSpace;softwareupdate -l;separateSpace;"
 alias macUpdate="proxy;OMZUpdate;packageUpdateCheck;brewUpdate;unproxy;"
 
@@ -89,3 +89,7 @@ alias publicSSH='cat ~/.ssh/id_ed25519.pub'
 
 # 清除在终端产生的历史
 alias clearTerminalHistory="$SCRIPT_PATH/clearTerminalHistory.sh"
+
+# 清除log
+NPM_CACHE_PATH="/opt/homebrew/lib/node_cache/_logs"
+alias clearNpmLog="delete ${NPM_CACHE_PATH}"

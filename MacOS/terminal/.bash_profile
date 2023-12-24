@@ -21,7 +21,7 @@ export HOMEBREW_NO_AUTO_UPDATE=true
 export HOMEBREW_NO_AUTO_UPDATE=1
 
 # Myself环境
-export MYSELF_HOME="$HOME/Myself"
+export MYSELF_HOME="$HOME/Cenxi"
 
 # qv2ray_core环境
 export Qv2rayCorePath="$MYSELF_HOME/qv2ray_core"
@@ -63,5 +63,5 @@ export LANG=en_US.UTF-8
 
 # OpenAI
 # API Key
-export OpenAI_API_KEY="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";
+export OpenAI_API_KEY="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";
 export OpenAI_OutputFile="$SCRIPT_PATH/TerminalAIChat/gptChatCache.json";
